@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Instructor>
+@{
+    
+    ViewBag.Title = "Index page";
+}
+
+<form asp-action="Index" asp-controller="Instructor" method="get">
+    <select asp-items="@(new SelectList(ViewBag.AvailableDepartments))", name="SelectedDepartment">
+        <option value="">All Departments</option>
+    </select>
+
+    <input name="searchByLastName" placeholder="last name includes ..." value="@ViewBag.searchByLastName"/> 
+    <button type="submit">Filter results</button>
+    <button onclick="document.getElementById('Alex').value=null">Reset filter</button>
+</form>
+
+
+
+    <h2>Current List of Instructors</h2>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Department</th>
+                <th>Date Hired</th>
+                <th>Details</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var instructor in Model)
+            {
+                <tr>
+                    <td>@instructor.FirstName</td>
+                    <td>@instructor.LastName</td>
+                    <td>@instructor.Department</td>
+                    <td>@instructor.DateHired</td>
+                    <td><a asp-action="Details" asp-route-id="@instructor.ID" class="btn btn-warning">Show</a></td>
+                    <td><a asp-action="Edit" asp-route-id="@instructor.ID" class="btn btn-primary">Edit</a></td>
+                    <td><a asp-action="Delete" asp-route-id="@instructor.ID" class="btn btn-danger">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Create" asp-controller="Instructor" class="btn btn-success">Create a new Instructor</a>
+

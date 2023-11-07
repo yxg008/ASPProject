@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<h1>Displaying all students</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>StudentID</th>
+            <th>Name</th>
+            <th>Major</th>
+            <th>Is Veteran</th>
+            <th>Admission Date</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.StudentId</td>
+                <td>@s.Name</td>
+                <td>@s.Major</td>
+                <td>@(s.IsVeteran ? "Yes" : "No")</td> <!-- More user-friendly display -->
+                <td>@s.AdmissionDate</td> <!-- Assuming you want a specific date format -->
+                <td>@s.GPA.ToString("0.00")</td> <!-- Formatting GPA to two decimal places -->
+            </tr>
+        }
+    </tbody>
+</table>

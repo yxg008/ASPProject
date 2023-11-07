@@ -1,0 +1,18 @@
+﻿@model Instructor
+@{
+  
+    ViewBag.Title = "Delete page";
+}
+
+<h1>Are you sure you want to delete the instructor: @Model.FirstName @Model.LastName?</h1>
+<div class="text-center">
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.ID">
+        <button type="submit" class="btn btn-danger">Yes</button>
+    </form>
+
+    <form asp-action="Index">
+        <button type="submit" class="btn btn-success">No</button>
+    </form>
+    <button class="btn btn-default" onclick="history.back();">Go back</button>
+</div>
+

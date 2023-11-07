@@ -1,0 +1,28 @@
+
+body {
+    background-color: lightblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h1 {
+    background-color: red;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+p {
+    background-color: lightyellow;
+    text-indent: 70px;
+    width: 50%;
+    border: 15px solid green;  
+    padding: 50px;
+    margin: 20px;
+}
+p::first-letter {
+    color: red;
+}
+#SMU {
+    background-color: rgb(222,157,210);
+}
+.flower {
+    text-align: left;
+}

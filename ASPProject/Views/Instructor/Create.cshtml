@@ -1,0 +1,47 @@
+﻿@model Instructor
+@{
+    
+    ViewBag.Title = "Create page";
+}
+
+
+    <h1>Create a new instructor record</h1>
+    <div asp-validation-summary="All" style="color:red"></div>
+    <form asp-controller="Instructor" asp-action="Create">
+        @* <label asp-for="ID"></label> 
+        <input asp-for="ID"/>
+        <span asp-validation-for="ID"></span> 
+        <br/>*@
+        <label asp-for="FirstName"></label> 
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span> 
+        <br />
+        <label asp-for="LastName"></label> 
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName"></span> 
+        <br />
+        <label asp-for="IsTenured"></label>  
+        <input asp-for="IsTenured" />
+        <span asp-validation-for="IsTenured"></span>
+        <br />
+        <label asp-for="DateHired"></label> 
+        <input asp-for="DateHired" />
+        <span asp-validation-for="DateHired"></span> 
+        <br />
+        <label asp-for="PhoneNumber">
+        </label>  <input asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span> 
+        <br />
+        <label asp-for="Email"></label> 
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span> 
+        <br />
+        <label asp-for="Department"></label>  
+        <select asp-for="Department" asp-items="@Html.GetEnumSelectList(typeof(Departments))">
+            <option value=""></option>
+            <span asp-validation-for="Department"></span>
+        </select>
+        <br />
+        <br />
+        <input type="submit" value="Save new instructor"/>
+    </form>

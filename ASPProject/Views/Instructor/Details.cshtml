@@ -1,0 +1,23 @@
+﻿
+@model Instructor 
+<!--if you pass one instructor, you don't need IEnumerable-->
+
+@{
+
+    ViewBag.Title = "Details page";
+}
+
+    @if(Model is null)
+    {
+        <h1>Instructor not found! </h1>
+        <p>There is no instructor with ID = @ViewBag.id</p>
+    }
+    else
+    {
+        <h1>Displying the details of instructor: @Model.LastName, @Model.FirstName</h1>
+        <p><label asp-for="@Model.DateHired"></label>@Model.DateHired</P>
+        <p><label asp-for="@Model.IsTenured"></label>@Model.IsTenured</P>
+        <p><label asp-for="@Model.Department"></label>@Model.Department</P>
+    }   
+    <a asp-action="Index" class="btn btn-success">Go to the list  of all instructors</a>
+
